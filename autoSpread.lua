@@ -35,7 +35,7 @@ local function checkChild(slot, crop)
             action.placeCropStick()
 
         elseif crop.name == targetCrop then
-            local stat = crop.gr + crop.ga - crop.re
+            local stat = crop.gr + crop.ga + crop.re
 
             -- Make sure no parent on the working farm is empty
             if stat >= config.autoStatThreshold and findEmpty() and crop.gr <= config.workingMaxGrowth and crop.re <= config.workingMaxResistance then
