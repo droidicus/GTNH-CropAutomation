@@ -26,14 +26,14 @@ local function updateLowest()
                 break
 
             elseif crop.name ~= targetCrop then
-                local stat = crop.gr + crop.ga - crop.re - 2
+                local stat = crop.gr + crop.ga + crop.re - 2
                 if stat < lowestStat then
                     lowestStat = stat
                     lowestStatSlot = slot
                 end
 
             else
-                local stat = crop.gr + crop.ga - crop.re
+                local stat = crop.gr + crop.ga + crop.re
                 if stat < lowestStat then
                     lowestStat = stat
                     lowestStatSlot = slot
@@ -58,7 +58,7 @@ local function checkChild(slot, crop, firstRun)
             return
 
         elseif crop.name == targetCrop then
-            local stat = crop.gr + crop.ga - crop.re
+            local stat = crop.gr + crop.ga + crop.re
 
             if stat > lowestStat then
                 action.transplant(gps.workingSlotToPos(slot), gps.workingSlotToPos(lowestStatSlot))
